@@ -1,0 +1,83 @@
+/* reset css */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+/*Adding aesthetic style to inner divs w class box */
+.box {
+    height: 20px;
+    width: 20px;
+    background-color: pink;
+    border: 1px solid brown;
+}
+
+/*Aesthetic style to change on hover*/
+.box:hover {
+    background-color: aqua;
+    border: 1px solid blue;
+}
+
+/* Making inner div containers flex to style the box divs in each inner container horizontally */
+.inner {
+    display: flex;
+}
+
+/*Aesthetic style stored in class active to be added to boxes that are clicked*/
+.active {
+    background-color: aqua;
+    border: 1px solid blue;
+}
+
+
+
+
+
+
+/* .container {
+    display: flex;
+    height: 185px;
+    width: 185px;
+    border: 25px solid orange;
+}
+
+.row {
+    height: 10px;
+    width: 10px;
+    background-color: blue;
+    border: 1px solid black;
+} */
+
+
+
+/*
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 196px;
+    width: 196px;
+    border: 1px solid orange;
+}
+
+.container div {
+    background: peachpuff;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 1;
+}
+
+
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5px;
+}
+*/
