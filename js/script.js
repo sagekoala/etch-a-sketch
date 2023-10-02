@@ -45,22 +45,22 @@ function removeClickDrawing() {
 }
 
 
-function addMouseoverDrawing() {
+function addmouseenterDrawing() {
     boxList.forEach((box) => {
-        box.addEventListener('mouseover', mouseoverEventHandler);
+        box.addEventListener('mouseenter', mouseenterEventHandler);
     });
 }
 
 // Mousover drawing functions
-function mouseoverEventHandler(e) {
+function mouseenterEventHandler(e) {
     e.srcElement.classList.add('active');
 }
 
-function removeMouseoverDrawing() {
+function removemouseenterDrawing() {
 
-    // Remove mouseover event listener
+    // Remove mouseenter event listener
     boxList.forEach((box) => {
-        box.removeEventListener('mouseover', mouseoverEventHandler);
+        box.removeEventListener('mouseenter', mouseenterEventHandler);
     });
 
     // Reset box style
@@ -70,22 +70,22 @@ function removeMouseoverDrawing() {
 // Set up eventListener on clear button
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', (e) => {
-    removeMouseoverDrawing();
+    removemouseenterDrawing();
     removeClickDrawing();
 });
 
 // Set up eventListener on click button
 const clickButton = document.querySelector('.click');
 clickButton.addEventListener('click', () => {
-    removeMouseoverDrawing();
+    removemouseenterDrawing();
     addClickDrawing();
 });
 
-// Set up eventListener on mouseover button
-const mouseoverButton = document.querySelector('.mouseover');
-mouseoverButton.addEventListener('click', () => {
+// Set up eventListener on mouseenter button
+const mouseenterButton = document.querySelector('.mouseenter');
+mouseenterButton.addEventListener('click', () => {
     removeClickDrawing();
-    addMouseoverDrawing();
+    addmouseenterDrawing();
 });
 
 function resetBoxStyle() {
