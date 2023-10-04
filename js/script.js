@@ -3,7 +3,11 @@
 // Create reference to mainContainer div
 const gridContainer = document.querySelector('.gridContainer');
 
-const BOXES = 16; // Size of grid
+
+
+// Calculate height of boxes and adjust css
+
+const BOXES = 35; // Size of grid
 for (let i = 0; i < BOXES; i++) {
     
     // Initialize new inner container
@@ -20,8 +24,18 @@ for (let i = 0; i < BOXES; i++) {
     gridContainer.appendChild(innerContainer); // Append all innerContainer to gridContainer
 }
 
+// Floating point width of each box div after flex-grow to meet width of container
+const adjustedWidth = gridContainer.childNodes[0].childNodes[0].getBoundingClientRect().width; 
+
 // List of boxes
 const boxList = document.querySelectorAll('.box');
+console.log(boxList);
+
+// update height for each box
+boxList.forEach((box) => {
+    box.style.height = `${adjustedWidth}px`;
+});
+
 
 function addClickDrawing() {
     boxList.forEach((box) => {
@@ -31,6 +45,7 @@ function addClickDrawing() {
 
 // Click drawing functions
 function clickEventHandler(e) {
+    e.srcElement.style.backgroundColor = getRandomRGB();
     e.srcElement.classList.add('active');
 }
 
@@ -53,6 +68,7 @@ function addmouseenterDrawing() {
 
 // Mousover drawing functions
 function mouseenterEventHandler(e) {
+    e.srcElement.style.backgroundColor = getRandomRGB();
     e.srcElement.classList.add('active');
 }
 
@@ -89,10 +105,26 @@ mouseenterButton.addEventListener('click', () => {
 });
 
 function resetBoxStyle() {
+
+    // Get default backgroundcolor for div with class box before event triggered
     boxList.forEach((box) => {
+        box.style.backgroundColor = 'lightgray';
         box.classList.remove('active');
     });
 }
+
+function getRandomRGB() {
+
+    // Return string with random value for red, green, and blue of rgb()
+    let red = Math.floor(Math.random() * 255 ) + 1; // Random value 0 - 255
+    let green = Math.floor(Math.random() * 255 ) + 1; // Random value 0 - 255
+    let blue = Math.floor(Math.random() * 255 ) + 1; // Random value 0 - 255
+
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+
+
 
 
 
