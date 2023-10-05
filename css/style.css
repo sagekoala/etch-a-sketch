@@ -12,10 +12,12 @@ body {
 
 /*Adding aesthetic style to inner divs w class box */
 .box {
-    height: 25px;
-    width: 25px;
-    background-color: pink;
-    border: 1px solid brown;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 15px;
+    width: 15px;
+    background-color: lightgray;
+    border: 1px solid darkgray;
 }
 
 /* Making inner div containers flex to style the box divs in each inner container horizontally */
@@ -25,15 +27,21 @@ body {
 
 /*Aesthetic style stored in class active to be added to boxes that are clicked*/
 .active {
-    background-color: aqua;
-    border: 1px solid blue;
+    background-color: rgb(45, 69, 200);
+}
+
+/* Define size of grid container*/
+.gridContainer {
+    height: 500px;
+    width: 500px;
+    border: 10px solid lime;
 }
 
 /*Display grid in center*/
 .container {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 30px;
 }
 
 /*Styling position of the buttons below grid*/

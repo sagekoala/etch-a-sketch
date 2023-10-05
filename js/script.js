@@ -3,14 +3,11 @@
 // Create reference to mainContainer div
 const gridContainer = document.querySelector('.gridContainer');
 
-
-
-// Calculate height of boxes and adjust css
-
+// Loop through and create columns of BOXES amount, and rows of BOXES amount
 const BOXES = 35; // Size of grid
 for (let i = 0; i < BOXES; i++) {
     
-    // Initialize new inner container
+    // Initialize new inner container, used as flexbox for horizontal display of box divs
     let innerContainer = document.createElement('div');
     innerContainer.classList.add('inner');
 
@@ -29,14 +26,15 @@ const adjustedWidth = gridContainer.childNodes[0].childNodes[0].getBoundingClien
 
 // List of boxes
 const boxList = document.querySelectorAll('.box');
-console.log(boxList);
 
-// update height for each box
+
+// Update height of each box to current box width after the flex-grow/ flex-shrink
 boxList.forEach((box) => {
     box.style.height = `${adjustedWidth}px`;
 });
 
 
+// Click functions to add and remove drawing based on individual clicks
 function addClickDrawing() {
     boxList.forEach((box) => {
         box.addEventListener('click', clickEventHandler);
@@ -60,6 +58,7 @@ function removeClickDrawing() {
 }
 
 
+// Click functions to add and remove drawing based on entering a box in the grid
 function addmouseenterDrawing() {
     boxList.forEach((box) => {
         box.addEventListener('mouseenter', mouseenterEventHandler);
@@ -74,12 +73,11 @@ function mouseenterEventHandler(e) {
 
 function removemouseenterDrawing() {
 
-    // Remove mouseenter event listener
     boxList.forEach((box) => {
         box.removeEventListener('mouseenter', mouseenterEventHandler);
     });
 
-    // Reset box style
+    // Reset box to default style
     resetBoxStyle();
 }
 
@@ -105,8 +103,7 @@ mouseenterButton.addEventListener('click', () => {
 });
 
 function resetBoxStyle() {
-
-    // Get default backgroundcolor for div with class box before event triggered
+    // Reset box color to default, remove active class
     boxList.forEach((box) => {
         box.style.backgroundColor = 'lightgray';
         box.classList.remove('active');
@@ -114,8 +111,8 @@ function resetBoxStyle() {
 }
 
 function getRandomRGB() {
-
     // Return string with random value for red, green, and blue of rgb()
+
     let red = Math.floor(Math.random() * 255 ) + 1; // Random value 0 - 255
     let green = Math.floor(Math.random() * 255 ) + 1; // Random value 0 - 255
     let blue = Math.floor(Math.random() * 255 ) + 1; // Random value 0 - 255
